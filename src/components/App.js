@@ -11,9 +11,7 @@ class App extends Component {
     async componentDidMount() {
         const deals = await ajax.fetchInitialDeals();
         //console.log(deals);
-        this.setState((prevState) => {
-            return { deals };
-        });
+        this.setState({ deals });
     }
 
     render() {
@@ -26,7 +24,7 @@ class App extends Component {
                             <Text style={style.version}>v 1.0</Text>
                         </View>
                         :
-                        <DealList/>
+                        <DealList deals={this.state.deals}/>
                 }
 
             </View>
@@ -40,6 +38,7 @@ var style = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'white',
     },
     header: {
         fontSize: 40,
