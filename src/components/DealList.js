@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import DealItem from './DealItem';
 
 class DealList extends Component {
     static propTypes = {
@@ -12,7 +13,7 @@ class DealList extends Component {
             <View style={style.list}>
                 <FlatList               
                     data={this.props.deals}
-                    renderItem={({ item }) => <Text style={style.listItem}>{item.title}</Text>}
+                    renderItem={({ item }) => <DealItem deal={item}/>}
                 />
             </View>
         );
@@ -27,7 +28,7 @@ var style = StyleSheet.create({
         padding: 3,
     },
     listItem:{
-        fontSize: 30,
+        fontSize: 10,
     }
 });
 
